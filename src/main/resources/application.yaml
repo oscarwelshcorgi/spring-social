@@ -1,0 +1,17 @@
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: "257689830576-38aqp4upd6v6mgc7hmkaqakrjkf8kvus.apps.googleusercontent.com"
+            client-secret: "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"
+            scope:
+              - profile
+              - email
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/study_db?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&serverTimezone=Asia/Seoul
+    username: root
+    password: 1234
