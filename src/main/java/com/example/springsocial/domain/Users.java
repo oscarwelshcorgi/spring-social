@@ -19,23 +19,27 @@ public class Users {
     private String name;
     private String email;
     private String password;
+    private String picture;
     @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
     private Role role;
 
     private String provider;
 
     @Builder
-    public Users(Long id, String name, String email, String password, Role role, String provider) {
+    public Users(Long id, String name, String email, String password, String picture, Role role, String provider) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.password = password;
+        this.picture = picture;
         this.role = role;
         this.provider = provider;
     }
 
-    public Users update(String name, String provider) {
+    public Users update(String name, String picture, String provider) {
         this.name = name;
+        this.picture = picture;
         this.provider = provider;
         return this;
     }

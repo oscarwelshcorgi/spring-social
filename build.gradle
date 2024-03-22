@@ -20,6 +20,11 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-security'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	implementation 'org.springframework.boot:spring-boot-starter-log4j2:3.2.3'
+	implementation 'org.springframework.boot:spring-boot-starter-mustache:3.2.1'
+	implementation 'org.hibernate:hibernate-core:6.4.4.Final'
+	testImplementation 'org.projectlombok:lombok:1.18.28'
 
 	compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.30'
 	annotationProcessor('org.projectlombok:lombok')
@@ -32,4 +37,11 @@ dependencies {
 
 tasks.named('test') {
 	useJUnitPlatform()
+}
+
+//라이브러리 제외하기
+configurations {
+	all{
+		exclude module: 'spring-boot-starter-logging'
+	}
 }

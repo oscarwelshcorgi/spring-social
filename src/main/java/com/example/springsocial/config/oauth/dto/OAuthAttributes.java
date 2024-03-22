@@ -10,10 +10,11 @@ import java.util.Map;
 @Getter
 @Builder
 public class OAuthAttributes {
-    private Map<String, Object> attributes;
+    private Map<String, Object> attributes; // OAuth2 반환하는 유저 정보 Map
     private String nameAttributeKey;
     private String name;
     private String email;
+    private String picture;
     private String provider;
 
     public static OAuthAttributes of(String registrationId, String userNameAttributeName, Map<String, Object> attributes) {
@@ -30,6 +31,7 @@ public class OAuthAttributes {
         return OAuthAttributes.builder()
                 .name((String) attributes.get("name"))
                 .email((String) attributes.get("email"))
+                .picture((String) attributes.get("picture"))
                 .provider("Google")
                 .attributes(attributes)
                 .nameAttributeKey(userNameAttributeName)
@@ -65,8 +67,9 @@ public class OAuthAttributes {
         return Users.builder()
                 .name(name)
                 .email(email)
+                .picture(picture)
                 .provider(provider)
-                .role(Role.USER)
+                .role(Role.GUEST) //기본 권한 GUEST
                 .build();
     }
 }
